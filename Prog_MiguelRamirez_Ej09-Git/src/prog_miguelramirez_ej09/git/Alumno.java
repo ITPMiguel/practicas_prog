@@ -62,7 +62,7 @@ public class Alumno {
         Scanner teclado = new Scanner(System.in);
         try {
             for (int i = 0; i < n_asignaturas; i++) {
-                System.out.print("Dame la +" + (i + 1) + " nota del alumno +" + nombre + ":");
+                System.out.print("Dame la " + (i + 1) + "º nota del alumno " + nombre + ": ");
                 double nota = teclado.nextDouble();
                 if (nota < 0 || nota > 10) {
                     throw new RangoException("Nota no valida.");
@@ -70,10 +70,19 @@ public class Alumno {
                 notas.add(nota);
             }
         } catch (RangoException e) {
-            System.out.println(" (Error: " + e.toString() + ")");
+            System.out.println(e.toString());
         }
     }
 
+    /**
+     * metodo que modifica la nota dandole al posicion y la nueva nota
+     *
+     * @param posicion la posicion de la nota a cambiar
+     * @param nnota la nueva nota a sustituir
+     * @throws RangoException salta en caso de sobrpasar las notas validas
+     * @throws MisteriosaException Salta en caso de introducir una posicion
+     * erronea
+     */
     public void modificarNota(int posicion, double nnota) throws RangoException, MisteriosaException {
 
         try {
@@ -83,16 +92,19 @@ public class Alumno {
             if (posicion > n_asignaturas || posicion < 0) {
                 throw new MisteriosaException(0, 0);
             }
-            notas.add(nnota);
+            notas.set(posicion, nnota);
         } catch (MisteriosaException | RangoException e) {
-            System.out.println(" (Error: " + e.toString() + ")");
+            System.out.println(e.toString());
         }
     }
 
+    /**
+     * imprime los datos de la clase alumno
+     */
     public void imprimirCalificaciones() {
-        System.out.println("Nombre: "+nombre);
-        System.out.print("Notas: ");
-        for (int i = 0; i < 10; i++) {
+        System.out.println("Nombre del Alumno: " + nombre);
+        System.out.println("Notas: ");
+        for (int i = 0; i < n_asignaturas; i++) {
             System.out.println(notas.get(i));
         }
     }
