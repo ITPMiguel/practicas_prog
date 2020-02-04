@@ -81,11 +81,19 @@ public class Alumno {
                 throw new RangoException("Nota no valida.");
             }
             if (posicion > n_asignaturas || posicion < 0) {
-                throw new MisteriosaException (0,0);
+                throw new MisteriosaException(0, 0);
             }
             notas.add(nnota);
-        } catch (RangoException e) {
+        } catch (MisteriosaException | RangoException e) {
             System.out.println(" (Error: " + e.toString() + ")");
+        }
+    }
+
+    public void imprimirCalificaciones() {
+        System.out.println("Nombre: "+nombre);
+        System.out.print("Notas: ");
+        for (int i = 0; i < 10; i++) {
+            System.out.println(notas.get(i));
         }
     }
 
