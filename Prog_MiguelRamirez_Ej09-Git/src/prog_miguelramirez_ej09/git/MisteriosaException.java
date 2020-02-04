@@ -9,22 +9,21 @@ package prog_miguelramirez_ej09.git;
  *
  * @author Miguel
  */
-public class RangoException extends Exception {
+public class MisteriosaException extends Exception {
 
     /**
      * Constructor con parámetros de la clase
      *
-     * @param nota Nota para mostrar en la excepción
+     * @param posicion posicion para ingresar la nota
+     * @param nnota nota del alumno
      */
-    public RangoException(String nota) {
-        super(nota);
-
+    public MisteriosaException(int posicion, double nnota) {
+        super();
     }
 
     @Override
     public String toString() {
-        return "El numero supera los limites. Error: RangoException";
+        return "El numero supera los limites. Error: MisteriosaException";
     }
-    
     
 }
