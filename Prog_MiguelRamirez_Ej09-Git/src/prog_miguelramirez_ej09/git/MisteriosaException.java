@@ -21,9 +21,14 @@ public class MisteriosaException extends Exception {
         super();
     }
 
+    /**
+     * metodo toString para monstrar la informacion
+     *
+     * @return devuelve la informacion
+     */
     @Override
     public String toString() {
         return "El numero supera los limites. Error: MisteriosaException";
     }
-    
+
 }

@@ -14,7 +14,9 @@ import java.util.Scanner;
 public class Prog_MiguelRamirez_Ej09Git {
 
     /**
-     * @param args the command line arguments
+     * Pide nombre de alumno, tras ello pide notas del alumno y te da a elegir
+     * entre modificar alguna o no. Tras ello imprime la informacion del alumno.
+     * En caso de algun error durante el proceso saltara el error.
      */
     public static void main(String[] args) {
         Scanner tecladoint = new Scanner(System.in);
