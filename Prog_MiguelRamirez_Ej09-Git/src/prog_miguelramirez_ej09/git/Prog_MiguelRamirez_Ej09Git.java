@@ -24,7 +24,7 @@ public class Prog_MiguelRamirez_Ej09Git {
         Scanner tecladostring = new Scanner(System.in);
         Alumno alu1 = new Alumno();
         try {
-            System.out.println("Nombre del alumno: ");
+            System.out.print("Nombre del alumno: ");
             String nombre = tecladostring.nextLine();
             alu1.setNombre(nombre);
             System.out.println("-----------");
@@ -37,8 +37,14 @@ public class Prog_MiguelRamirez_Ej09Git {
             if (opcion == 1) {
                 System.out.print("Dame la posicion de la nota: ");
                 int pos = tecladoint.nextInt();
+                if (pos > alu1.n_asignaturas || pos < 0) {
+                    throw new MisteriosaException(0, 0);
+                }
                 System.out.print("Dame la nueva nota: ");
                 double nnota = tecladodouble.nextDouble();
+                if (nnota < 0 || nnota > 10) {
+                    throw new RangoException("Nota no valida.");
+                }
                 alu1.modificarNota(pos, nnota);
             }
             System.out.println("-----------");

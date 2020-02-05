@@ -16,7 +16,7 @@ public class Alumno {
 
     private String nombre;
     private ArrayList notas;
-    private static int n_asignaturas = 5;
+    public static int n_asignaturas = 5;
 
     /**
      * constructor por defecto
@@ -60,18 +60,16 @@ public class Alumno {
      */
     public void pedirNotas() throws RangoException {
         Scanner teclado = new Scanner(System.in);
-        try {
-            for (int i = 0; i < n_asignaturas; i++) {
-                System.out.print("Dame la " + (i + 1) + "º nota del alumno " + nombre + ": ");
-                double nota = teclado.nextDouble();
-                if (nota < 0 || nota > 10) {
-                    throw new RangoException("Nota no valida.");
-                }
-                notas.add(nota);
+
+        for (int i = 0; i < n_asignaturas; i++) {
+            System.out.print("Dame la " + (i + 1) + "º nota del alumno " + nombre + ": ");
+            double nota = teclado.nextDouble();
+            if (nota < 0 || nota > 10) {
+                throw new RangoException("Nota no valida.");
             }
-        } catch (RangoException e) {
-            System.out.println(e.toString());
+            notas.add(nota);
         }
+
     }
 
     /**
@@ -84,18 +82,7 @@ public class Alumno {
      * erronea
      */
     public void modificarNota(int posicion, double nnota) throws RangoException, MisteriosaException {
-
-        try {
-            if (nnota < 0 || nnota > 10) {
-                throw new RangoException("Nota no valida.");
-            }
-            if (posicion > n_asignaturas || posicion < 0) {
-                throw new MisteriosaException(0, 0);
-            }
-            notas.set(posicion, nnota);
-        } catch (MisteriosaException | RangoException e) {
-            System.out.println(e.toString());
-        }
+        notas.set(posicion, nnota);
     }
 
     /**
