@@ -38,7 +38,7 @@ public class Prog_MiguelRamirez_Ej09Git {
                 System.out.print("Dame la posicion de la nota: ");
                 int pos = tecladoint.nextInt();
                 if (pos > alu1.n_asignaturas || pos < 0) {
-                    throw new MisteriosaException(0, 0);
+                    throw new IndexOutOfBoundsException ();
                 }
                 System.out.print("Dame la nueva nota: ");
                 double nnota = tecladodouble.nextDouble();
@@ -50,7 +50,7 @@ public class Prog_MiguelRamirez_Ej09Git {
             System.out.println("-----------");
             alu1.imprimirCalificaciones();
             System.out.println("-----------");
-        } catch (MisteriosaException | RangoException e) {
+        } catch (IndexOutOfBoundsException | RangoException e) {
             System.out.println("(Error: " + e.toString() + ")");
         }
     }
