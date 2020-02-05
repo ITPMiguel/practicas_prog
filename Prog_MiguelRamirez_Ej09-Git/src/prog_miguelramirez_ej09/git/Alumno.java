@@ -78,10 +78,10 @@ public class Alumno {
      * @param posicion la posicion de la nota a cambiar
      * @param nnota la nueva nota a sustituir
      * @throws RangoException salta en caso de sobrpasar las notas validas
-     * @throws MisteriosaException Salta en caso de introducir una posicion
+     * @throws IndexOutOfBoundsException Salta en caso de introducir una posicion
      * erronea
      */
-    public void modificarNota(int posicion, double nnota) throws RangoException, MisteriosaException {
+    public void modificarNota(int posicion, double nnota) throws RangoException, IndexOutOfBoundsException {
         notas.set(posicion, nnota);
     }
 
